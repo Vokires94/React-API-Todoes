@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+ let [users, setUsers]=useState([]);
+
+  async function fetchUsers(page=1) {
+    let response = await fetch(`https://reqres.in/api/users?page=${page}`);
+    if (response.ok){
+      let users = await response.json();
+      setUsers(users.data);
+    } else {
+      let users = [];
+      console.log("Ошибка HTTP:" + response.status);
+      }
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => fetchUsers(1)}>Page 1</button>
+      <button onClick={() => fetchUsers(2)}>Page 2</button>
+      {
+        users.map((user) => (
+          <div key={user.id} className="List__Container">
+            <div><img alt="avatar" src={user.avatar} className="List__Image"/></div>
+            <div className="List__Info">
+              <div><span>{user.last_name}</span></div>
+              <div><span>{user.first_name}</span></div>
+              <div><span>{user.email}</span></div>
+            </div>                       
+          </div>
+        ))
+      }      
     </div>
   );
 }
