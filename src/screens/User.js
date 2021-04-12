@@ -24,14 +24,17 @@ fetchUsers();
   return (
     <div className="user__container">      
       {
-          <div key={account.id} className="List__Container">
+          <div key={account.id} className="">            
             <div><img alt="avatar" src={account.avatar} className="List__Image"/></div>
-            <div className="List__Info">
+            <div className="">
               <div><span>{account.last_name}</span></div>
-              <div><span>{account.first_name}</span></div>
-              <div><span>{account.email}</span></div>
+              <div><span>{account.first_name}</span></div>              
             </div>
-            <button onClick={() => history.push(`/users`)}>Back</button>                           
+            <div><span>{account.email}</span></div>
+            <div><input type="text" placeholder="Enter todo"></input><button>Edit</button></div>
+            <div><h2>List of Todos</h2></div>
+            <div><span>Список Дел</span><button>Edit</button><button>Delete</button></div>
+            <div><button onClick={() => history.push(`/users`)}>Back</button></div>                                       
           </div>
         
       }      
