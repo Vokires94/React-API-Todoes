@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import './App.css';
 
 function App() {
 
  let history = useHistory();
- let [users, setUsers]=useState([]);
+ let [users, setUsers] = useState([]);
+ let [page, setPages] = useState(1);
+
 
 
   async function fetchUsers(page=1) {
@@ -14,15 +16,19 @@ function App() {
       let users = await response.json();
       //console.log(users);
       setUsers(users.data);
-    } else {
+     } else {
       console.log("Ошибка HTTP:" + response.status);
       }
 }
 
+useEffect(() => {
+  fetchUsers(page);
+});
+
   return (
     <div className="App">
-      <button onClick={() => fetchUsers(1)}>Page 1</button>
-      <button onClick={() => fetchUsers(2)}>Page 2</button>
+      <button onClick={() => setPages(1)}>Page 1</button>
+      <button onClick={() => setPages(2)}>Page 2</button>
       {
         users.map((user) => (
           <div key={user.id} className="List__Container">
