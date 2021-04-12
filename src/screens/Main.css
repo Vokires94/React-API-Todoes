@@ -1,5 +1,11 @@
-.title{
+.title {
     background-color: aqua;
+}
+.description {
+    background-color:chartreuse;
+}
+.description p{
+    margin: 0px;
 }
 .buttons__container{
     background-color: darkorange;

@@ -11,7 +11,6 @@ function App() {
       let users = await response.json();
       setUsers(users.data);
     } else {
-      let users = [];
       console.log("Ошибка HTTP:" + response.status);
       }
 }
