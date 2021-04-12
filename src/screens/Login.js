@@ -55,12 +55,12 @@ function Login() {
 
     return (
     <>
-        <div class="form">Login Form</div>
-        <div class="Status"><p>{loginmessage}</p></div>
-        <div class="input__container">
-            <label for="email"></label>
+        <div className="form">Login Form</div>
+        <div className="Status"><p>{loginmessage}</p></div>
+        <div className="input__container">
+            <label htmlFor="email"></label>
             <input type="text" placeholder="Enter E-mail" name="email" value={useremail} onChange={e => setUseremail(e.target.value)} />
-            <label for="psw"></label>
+            <label htmlFor="psw"></label>
             <input type="password" placeholder="Enter Password" name="psw" value={userpass} onChange={e => setUserpass(e.target.value)} />
             <input type="submit" onClick={Login} value="Log in" />
         </div>

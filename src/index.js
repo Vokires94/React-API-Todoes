@@ -7,6 +7,7 @@ import App from './screens/App';
 import Main from './screens/Main';
 import Login from './screens/Login';
 import Register from './screens/Register';
+import User from './screens/User';
 
 const history = createBrowserHistory();
 
@@ -24,6 +25,9 @@ ReactDOM.render(
             </Route>
             <Route path='/register'>
               <Register />
+            </Route>
+            <Route path='/user/:id'>
+              <User />
             </Route>      
           </Switch>                
         </Router>,

@@ -1,14 +1,18 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import './App.css';
 
 function App() {
 
+ let history = useHistory();
  let [users, setUsers]=useState([]);
+
 
   async function fetchUsers(page=1) {
     let response = await fetch(`https://reqres.in/api/users?page=${page}`);
     if (response.ok){
       let users = await response.json();
+      //console.log(users);
       setUsers(users.data);
     } else {
       console.log("Ошибка HTTP:" + response.status);
@@ -27,6 +31,9 @@ function App() {
               <div><span>{user.last_name}</span></div>
               <div><span>{user.first_name}</span></div>
               <div><span>{user.email}</span></div>
+            </div>
+            <div className="button__div">
+              <button className="taskbutton" onClick={() => {history.push(`/user/${user.id}`)}}>Tasks</button>
             </div>                       
           </div>
         ))
