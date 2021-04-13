@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './screens/App';
 import Main from './screens/Main';
@@ -30,6 +31,6 @@ ReactDOM.render(
               <User />
             </Route>      
           </Switch>                
-        </Router>,
-  document.getElementById('root')
+        </Router>
+      , document.getElementById('root')
 );

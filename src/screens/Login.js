@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import './Login.css';
 
 function Login() {
 
     let history = useHistory();
-
+    
     const [userpass, setUserpass] = useState();
     const [useremail, setUseremail] = useState();
     const [loginmessage, setLoginmessage] = useState('Please fill in this form to login in your Account.');
 
-    async function Login() {
+    async function Log() {
 
         // test correct login info
         // const user = {        
@@ -37,6 +38,9 @@ function Login() {
           let token = await response.json();
           console.log(token);
           setLoginmessage('Login Successful. Redirecting to Users.');
+          Cookies.set('admin', user.email, {path: '/'});
+          Cookies.set('admin_token', token.token, {path: '/'});
+          console.log(document.cookie);         
           setTimeout(() => history.push('/users'), 2000);
         } else {
           console.log("Ошибка HTTP:" + response.status);
@@ -62,7 +66,7 @@ function Login() {
             <input type="text" placeholder="Enter E-mail" name="email" value={useremail} onChange={e => setUseremail(e.target.value)} />
             <label htmlFor="psw"></label>
             <input type="password" placeholder="Enter Password" name="psw" value={userpass} onChange={e => setUserpass(e.target.value)} />
-            <input type="submit" onClick={Login} value="Log in" />
+            <input type="submit" onClick={Log} value="Log in" />
         </div>
     </>
     );

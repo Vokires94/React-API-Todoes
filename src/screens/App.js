@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import './App.css';
+import Pagination from '../components/Pagination';
 
-function App() {
+function App() { 
 
  let history = useHistory();
  let [users, setUsers] = useState([]);
  let [page, setPages] = useState(1);
-
+ const [totalUsers, setTotalUsers] = useState(6);
+ const [postsPerPage] = useState(6);
 
 
   async function fetchUsers(page=1) {
@@ -16,6 +19,8 @@ function App() {
       let users = await response.json();
       //console.log(users);
       setUsers(users.data);
+      setTotalUsers(users.total);
+
      } else {
       console.log("Ошибка HTTP:" + response.status);
       }
@@ -23,12 +28,24 @@ function App() {
 
 useEffect(() => {
   fetchUsers(page);
-});
+},[page]);
+
+const paginate = (pageNumber) => {  
+  if(pageNumber == 0) setPages(1);  
+  if(pageNumber > totalUsers) setPages(pageNumber-1);
+}
+
+if (Cookies.get('admin') && Cookies.get('admin_token')) {
 
   return (
-    <div className="App">
-      <button onClick={() => setPages(1)}>Page 1</button>
-      <button onClick={() => setPages(2)}>Page 2</button>
+    <div className="App">      
+      <Pagination 
+        postsPerPage={postsPerPage}
+        totalPosts={totalUsers}
+        CurrentPage={page}
+        paginate={paginate}      
+      />
+      
       {
         users.map((user) => (
           <div key={user.id} className="List__Container">
@@ -46,6 +63,13 @@ useEffect(() => {
       }      
     </div>
   );
+   
+} else {
+  setTimeout(() => history.push('/'), 2000);
+  return (<div>Unauthorized User. Redirecting to Home page.</div>);
+
+}
+ 
 }
 
 export default App;
