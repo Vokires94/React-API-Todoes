@@ -1,4 +1,4 @@
-//import axios from 'axios';
+import axios from 'axios';
 
 import {
     FETCH_USER_SUCCESS,
@@ -7,14 +7,18 @@ import {
 
 export const fetchUser = (page = 1) => {
     return async (dispatch) => {
-        // axios.get(`https://reqres.in/api/users?page=${page}`)
-        //     .then((usersResponse) => dispatch({ type: FETCH_USERS_SUCCESS, payload: usersResponse.data.data }))
-        //     .catch(() => dispatch({ type: FETCH_USERS_ERROR, payload: 'Something went wrong on USERS fetch' }));
+        
+        // axios.get(`https://reqres.in/api/users/${page}`)
+        // .then((response) => response.json())
+        // .then((responseData) => dispatch({ type: FETCH_USER_SUCCESS, payload: [responseData.data]}))
+        // .catch(() => dispatch({ type: FETCH_USER_ERROR, payload: 'Something went wrong on USERS fetch' }));
 
         await fetch(`https://reqres.in/api/users/${page}`)
             .then((response) => response.json())
             .then((responseData) => dispatch({ type: FETCH_USER_SUCCESS, payload: [responseData.data]}))
             .catch(() => dispatch({ type: FETCH_USER_ERROR, payload: 'Something went wrong on USERS fetch' }));
+
+       
     };
 };
 

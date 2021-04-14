@@ -10,7 +10,7 @@ import actions from '../redux/actions';
 function User() {
  
  let history = useHistory();
- let { id } = useParams();
+ let { userId } = useParams();
  //let [account, setAccount]=useState([]);
 
  const todoList = useSelector(getTodosList);
@@ -32,7 +32,7 @@ function User() {
 // });
 
   useEffect(() => {
-    actions.fetchUser(id);
+    actions.fetchUser(userId); console.log(user);
   }, [])
 
   if (Cookies.get('admin') && Cookies.get('admin_token')) {
@@ -53,18 +53,18 @@ function User() {
             //   <div><button onClick={() => history.push(`/users`)}>Back</button></div>                                       
             // </div>
             
-             <div key={user.id} className="">            
-              <div><img alt="avatar" src={user.avatar} className="List__Image"/></div>
-              <div className="">
-                <div><span>{user.last_name}</span></div>
-                <div><span>{user.first_name}</span></div>              
-              </div>
-              <div><span>{user.email}</span></div>
-              <div><input type="text" placeholder="Enter todo"></input><button>Add</button></div>
-              <div><h2>List of Todos</h2></div>
-              <div><span>Something todo</span><button>Edit</button><button>Delete</button></div>              
-              <div><button onClick={() => history.push(`/users`)}>Back</button></div>                                       
-            </div>        
+            //  <div key={user.id} className="">            
+            //   <div><img alt="avatar" src={user.avatar} className="List__Image"/></div>
+            //   <div className="">
+            //     <div><span>{user.last_name}</span></div>
+            //     <div><span>{user.first_name}</span></div>              
+            //   </div>
+            //   <div><span>{user.email}</span></div>
+            //   <div><input type="text" placeholder="Enter todo"></input><button>Add</button></div>
+            //   <div><h2>List of Todos</h2></div>
+            //   <div><span>Something todo</span><button>Edit</button><button>Delete</button></div>              
+            //   <div><button onClick={() => history.push(`/users`)}>Back</button></div>                                       
+            // </div>        
         }      
       </div>
     );

@@ -1,8 +1,8 @@
 import { applyMiddleware, createStore } from 'redux';
-import ReduxThunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 import ReduxLogger from 'redux-logger';
 import mainReducer from '../reducers';
-const middlewares = [ReduxThunk];
+const middlewares = [thunk];
 const initialState = {};
 
 /* global process */
