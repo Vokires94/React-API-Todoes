@@ -1,0 +1,21 @@
+.List__Container {
+background-color: peachpuff;
+display: grid;
+grid-template-columns: 128px 1fr 128px;
+}
+.List__Image {
+border-radius: 50%;
+width: 128px;
+height: 128px;
+}
+.List__Info {
+    padding: 10px;
+    min-width: 200px;
+}
+.button__div {
+    align-self: center;
+    justify-self: center;
+}
+.taskbutton {
+    padding: 10px;    
+}

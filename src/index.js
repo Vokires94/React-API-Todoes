@@ -1,36 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import { Provider } from 'react-redux';
 import './index.css';
 import App from './screens/App';
-import Main from './screens/Main';
-import Login from './screens/Login';
-import Register from './screens/Register';
-import User from './screens/User';
 
 const history = createBrowserHistory();
 
 ReactDOM.render(
-        <Router history={history}>
-          <Switch>
-            <Route exact path='/'>
-              <Main />
-            </Route>
-            <Route path='/users'>
-              <App />
-            </Route>
-            <Route path='/login'>
-              <Login />
-            </Route>
-            <Route path='/register'>
-              <Register />
-            </Route>
-            <Route path='/user/:id'>
-              <User />
-            </Route>      
-          </Switch>                
-        </Router>
-      , document.getElementById('root')
+  <Router history={history}>
+    <App />
+  </Router>,
+  document.getElementById('root')
 );

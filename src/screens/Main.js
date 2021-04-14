@@ -6,11 +6,11 @@ function Main() {
 
     return (
     <>
-        <div class="title">Title</div>
-        <div class="description"><p>Welcome to Registration Form. Please type in your login and password.</p></div>
-        <div class="buttons__container">
-            <Link to="/login"><button class="button">Login</button></Link>
-            <Link to="/register"><button class="button">Register</button></Link>            
+        <div className="title">Title</div>
+        <div className="description"><p>Welcome to Registration Form. Please type in your login and password.</p></div>
+        <div className="buttons__container">
+            <Link to="/login"><button className="button">Login</button></Link>
+            <Link to="/register"><button className="button">Register</button></Link>            
         </div>
     </>
     );

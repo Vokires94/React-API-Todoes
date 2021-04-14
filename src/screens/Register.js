@@ -8,8 +8,8 @@ function Register() {
 
     let history = useHistory();
 
-    const [userpass, setUserpass] = useState();
-    const [useremail, setUseremail] = useState();
+    const [userpass, setUserpass] = useState('');
+    const [useremail, setUseremail] = useState('');
     const [regmessage, setRegmessage] = useState('Please fill in this form to register in your Account.');
 
     async function Reg() {

@@ -7,8 +7,8 @@ function Login() {
 
     let history = useHistory();
     
-    const [userpass, setUserpass] = useState();
-    const [useremail, setUseremail] = useState();
+    const [userpass, setUserpass] = useState('');
+    const [useremail, setUseremail] = useState('');
     const [loginmessage, setLoginmessage] = useState('Please fill in this form to login in your Account.');
 
     async function Log() {

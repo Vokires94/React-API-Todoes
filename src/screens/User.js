@@ -19,7 +19,10 @@ function User() {
       console.log("Ошибка HTTP:" + response.status);
       }
 }
-fetchUsers();
+
+useEffect(() => {
+  fetchUsers();
+});
 
   if (Cookies.get('admin') && Cookies.get('admin_token')) {
 
