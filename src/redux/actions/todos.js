@@ -9,8 +9,8 @@ import {
 
 export const addTodo = (id, text) => {
     return (dispatch) => {
-        if (!id || !text) {
-            dispatch({ type: ADD_TODO_ERROR, payload: 'ID or TEXT is not provided ' })
+        if (!text) {
+            dispatch({ type: ADD_TODO_ERROR, payload: 'Text is not provided or internal error ' })
         } else {
             dispatch({ type: ADD_TODO_SUCCESS, payload: { id, text } })
         }

@@ -8,8 +8,15 @@ import {
 } from '../constants';
 
 const initialState = {
-    data: [{user_id: '1', text_id: '1', text: 'something'}, {user_id: '1', text_id: '2', text: "dfdsfgsdfgdsfgds"}, {user_id: '1', text_id: '3', text: "534tyertrety"}, {user_id: '1', text_id: '4', text: "ghdfbngvvvvvvvv"},
-            {user_id: '2', text_id: '5', text: 'something'}, {user_id: '2', text_id: '6', text: "dfdsfgsdfgdsfgds"}, {user_id: '3', text_id: '7', text: "534tyertrety"}, {user_id: '4', text_id: '8', text: "ghdfbngvvvvvvvv"}],
+    data: [{user_id: '1', text_id: '1', text: 'something'},
+           {user_id: '1', text_id: '2', text: "dfdsfgsdfgdsfgds"},
+           {user_id: '1', text_id: '3', text: "534tyertrety"},
+           {user_id: '1', text_id: '4', text: "ghdfbngvvvvvvvv"},
+           {user_id: '2', text_id: '5', text: 'something'},
+           {user_id: '2', text_id: '6', text: "dfdsfgsdfgdsfgds"},
+           {user_id: '3', text_id: '7', text: "534tyertrety"},
+           {user_id: '4', text_id: '8', text: "ghdfbngvvvvvvvv"},
+          ],
     todoToEdit: {},
     message: '',
 };
@@ -20,7 +27,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 message: '',
-                data: state.data.length === 0 ? [{...action.payload}] : [...state.data, action.payload],
+                data: state.data.concat({user_id: action.payload.id, text_id: `${parseInt(state.data[state.data.length-1].text_id)+1}`, text: action.payload.text})
             };
 
         case ADD_TODO_ERROR:
@@ -57,7 +64,6 @@ export default (state = initialState, action) => {
                     }
                 }),
             };
-
 
             case EDIT_TODO_ERROR:
             return {

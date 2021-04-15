@@ -45,12 +45,11 @@ useEffect(() => {
                 <div><span>{account.last_name}</span></div>
                 <div><span>{account.first_name}</span></div>              
               </div>
-              <div><span>{account.email}</span></div>
-              <div><input type="text" placeholder="Enter todo"></input><button>Add</button></div>
-              <div><h2>List of Todos</h2></div>
-              <TodoList />                                                     
+              <div><span>{account.email}</span></div>              
             </div>             
-        }        
+        }
+        <div><h2>List of Todos</h2></div>
+        <TodoList />
         <div><button onClick={() => history.push(`/users`)}>Back</button></div>     
       </div>
     );
