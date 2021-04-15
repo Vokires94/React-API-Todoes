@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import './User.css';
+import TodoList from '../components/TodoList';
 // import { useSelector } from 'react-redux';
 // import { getTodosList, getUser } from '../redux/selectors';
 //import actions from '../redux/actions';
@@ -47,11 +48,11 @@ useEffect(() => {
               <div><span>{account.email}</span></div>
               <div><input type="text" placeholder="Enter todo"></input><button>Add</button></div>
               <div><h2>List of Todos</h2></div>
-              <div><span>Something todo</span><button>Edit</button><button>Delete</button></div>              
-              <div><button onClick={() => history.push(`/users`)}>Back</button></div>                                       
-            </div>            
-            
-        }      
+              {/* <div><span>Something todo</span><button>Edit</button><button>Delete</button></div>*/}
+              <TodoList />                                                     
+            </div>             
+        }        
+        <div><button onClick={() => history.push(`/users`)}>Back</button></div>     
       </div>
     );
   } else {
