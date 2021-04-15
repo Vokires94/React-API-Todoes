@@ -2,7 +2,9 @@ import {
     ADD_TODO_SUCCESS,
     ADD_TODO_ERROR,
     DELETE_TODO_SUCCESS,
-    DELETE_TODO_ERROR
+    DELETE_TODO_ERROR,
+    EDIT_TODO_SUCCESS,
+    EDIT_TODO_ERROR
 } from '../constants';
 
 const initialState = {
@@ -31,13 +33,36 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 message: '',
-                data: state.data.filter((item) => (item.user_id !== action.payload.user_id && item.text_id !== action.payload.text_id)),
+                data: state.data.filter((item) => item.text_id !== action.payload.text_id),
             };
 
         case DELETE_TODO_ERROR:
             return {
                 ...state,
                 message: action.payload,
+            };
+
+            case EDIT_TODO_SUCCESS:
+            return {
+                ...state,
+                message: '',
+                data: state.data.map((item, index) => { 
+                    if(item.text_id === action.payload.editValue) {
+                        return {
+                            ...item,
+                            text: action.payload.newValue
+                        }
+                    } else {
+                        return item
+                    }
+                }),
+            };
+
+
+            case EDIT_TODO_ERROR:
+            return {
+                ...state,
+                message: action.payload,                
             };
 
         default:

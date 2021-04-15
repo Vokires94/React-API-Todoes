@@ -48,7 +48,6 @@ useEffect(() => {
               <div><span>{account.email}</span></div>
               <div><input type="text" placeholder="Enter todo"></input><button>Add</button></div>
               <div><h2>List of Todos</h2></div>
-              {/* <div><span>Something todo</span><button>Edit</button><button>Delete</button></div>*/}
               <TodoList />                                                     
             </div>             
         }        
