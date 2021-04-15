@@ -3,6 +3,7 @@ import {
     FETCH_USER_ERROR,
 } from '../constants';
 
+
 const initialState = {
     data: [],
     message: '',
@@ -12,7 +13,7 @@ export default (state = initialState, action) => {
     switch(action.type) {
         case FETCH_USER_SUCCESS:
             return {
-                data: [...action.payload],
+                users: [...action.payload],
                 message: '',
             };
 

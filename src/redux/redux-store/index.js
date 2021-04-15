@@ -5,7 +5,7 @@ import mainReducer from '../reducers';
 const middlewares = [thunk];
 const initialState = {};
 
-/* global process */
+ /* global process */
 middlewares.push(ReduxLogger);
 
 export default createStore(mainReducer, initialState, applyMiddleware(...middlewares));
