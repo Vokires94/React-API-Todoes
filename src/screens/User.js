@@ -28,7 +28,7 @@ function User() {
 
 useEffect(() => {
   fetchUsers();
-});
+}, []);
 
   // useEffect(() => {
   //   actions.fetchUser(userId); console.log(user); 

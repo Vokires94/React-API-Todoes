@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pagination.css';
 
 const Pagination = ({ postsPerPage, totalPosts, CurrentPage, paginate }) => {
   const pageNumbers = [];
@@ -9,7 +10,7 @@ const Pagination = ({ postsPerPage, totalPosts, CurrentPage, paginate }) => {
 
   return (
       <div className='pagination'>
-          <button onClick={() => paginate(CurrentPage-1)}>
+          <button onClick={() => paginate(CurrentPage-1)} className='page-back'>
               Back
           </button>
         {            
@@ -18,7 +19,7 @@ const Pagination = ({ postsPerPage, totalPosts, CurrentPage, paginate }) => {
             {number}
             </button>          
         ))}
-        <button onClick={() => paginate(CurrentPage+1)}>
+        <button onClick={() => paginate(CurrentPage+1)} className='page-next'>
               Next
           </button>
       </div>

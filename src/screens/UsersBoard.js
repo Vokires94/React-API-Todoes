@@ -51,9 +51,9 @@ if (Cookies.get('admin') && Cookies.get('admin_token')) {
           <div key={user.id} className="List__Container">
             <div><img alt="avatar" src={user.avatar} className="List__Image"/></div>
             <div className="List__Info">
-              <div><span>{user.last_name}</span></div>
-              <div><span>{user.first_name}</span></div>
-              <div><span>{user.email}</span></div>
+              <div><span>First Name: {user.first_name}</span></div>
+              <div><span>Last Name: {user.last_name}</span></div>              
+              <div><span>E-mail: {user.email}</span></div>
             </div>
             <div className="button__div">
               <button className="taskbutton" onClick={() => {history.push(`/user/${user.id}`)}}>Tasks</button>

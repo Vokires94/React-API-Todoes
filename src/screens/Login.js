@@ -58,9 +58,9 @@ function Login() {
     }
 
     return (
-    <>
-        <div className="form">Login Form</div>
-        <div className="Status"><p>{loginmessage}</p></div>
+    <div className="login__container">
+        <div className="form"><h3>Login Form</h3></div>
+        <div className="status"><span>{loginmessage}</span></div>
         <div className="input__container">
             <label htmlFor="email"></label>
             <input type="text" placeholder="Enter E-mail" name="email" value={useremail} onChange={e => setUseremail(e.target.value)} />
@@ -68,7 +68,7 @@ function Login() {
             <input type="password" placeholder="Enter Password" name="psw" value={userpass} onChange={e => setUserpass(e.target.value)} />
             <input type="submit" onClick={Log} value="Log in" />
         </div>
-    </>
+    </div>
     );
 
 }

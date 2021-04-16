@@ -1,7 +1,9 @@
 .List__Container {
-background-color: peachpuff;
+background-color: #feefdd;
 display: grid;
 grid-template-columns: 128px 1fr 128px;
+border-bottom: 0.2em solid #50B2C0;
+font-size: 18px;
 }
 .List__Image {
 border-radius: 50%;
