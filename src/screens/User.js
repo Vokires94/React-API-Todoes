@@ -39,18 +39,18 @@ useEffect(() => {
     return (
       <div className="user__container">   
         {
-            <div key={account.id} className="">            
-              <div><img alt="avatar" src={account.avatar} className="List__Image"/></div>
-              <div className="">
-                <div><span>{account.last_name}</span></div>
-                <div><span>{account.first_name}</span></div>              
-              </div>
-              <div><span>{account.email}</span></div>              
+            <div key={account.id} className="user__data">            
+              <div className="user__avatar"><img alt="avatar" src={account.avatar}/></div>
+              <div className="user__details">
+                <div><span>User First Name: {account.first_name}</span></div>
+                <div><span>User Last Name: {account.last_name}</span></div>
+                <div><span>User E-mail: {account.email}</span></div>               
+              </div>             
             </div>             
         }
         <div><h2>List of Todos</h2></div>
         <TodoList />
-        <div><button onClick={() => history.push(`/users`)}>Back</button></div>     
+        <div><button onClick={() => history.push(`/users`)} className="button__back">Back</button></div>     
       </div>
     );
   } else {

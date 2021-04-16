@@ -1,0 +1,16 @@
+.add__container {
+    margin: 0 0 20px 0;
+}
+.add__container input {
+    margin: 0 10px 0 0;
+}
+.edit__container {
+    margin: 20px 0 0 0;
+}
+.edit__container input {
+    margin: 0 10px 0 0;
+}
+.todo {
+    display: grid;
+    grid-template-columns: 250px 100px;
+}
