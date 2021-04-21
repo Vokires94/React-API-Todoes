@@ -1,32 +1,13 @@
-//import axios from 'axios';
-
 import {
-    FETCH_USER_SUCCESS,
-    FETCH_USER_ERROR,
+    FETCH_USERS_SUCCESS,
+    FETCH_USERS_ERROR,
 } from '../constants';
 
-export const fetchUser = (page = 1) => {
+export const fetchUsers = (page = 1) => {
     return async (dispatch) => {
-        
-        // axios.get(`https://reqres.in/api/users/${page}`)
-        // .then((response) => response.json())
-        // .then((responseData) => dispatch({ type: FETCH_USER_SUCCESS, payload: [responseData.data]}))
-        // .catch(() => dispatch({ type: FETCH_USER_ERROR, payload: 'Something went wrong on USERS fetch' }));
-
-        await fetch(`https://reqres.in/api/users/${page}`)
+        await fetch(`https://reqres.in/api/users/?page=${page}`)
             .then((response) => response.json())
-            .then((responseData) => dispatch({ type: FETCH_USER_SUCCESS, payload: [responseData.data]}))
-            .catch(() => dispatch({ type: FETCH_USER_ERROR, payload: 'Something went wrong on USERS fetch' }));
-
-       
+            .then((responseData) => dispatch({ type: FETCH_USERS_SUCCESS, payload: [responseData]}))
+            .catch(() => dispatch({ type: FETCH_USERS_ERROR, payload: 'Failed to fetch Users' }));
     };
-};
-
-// export const a = (id) => {
-//     return async (dispatch) => {
-//         await fetch (`https://reqres.in/api/users/${id}`)
-//             .then((response) => response.json())
-//             .then((responseData) => console.log(responseData))
-//             .catch((error) => console.log(error))
-//     };
-// };
+}

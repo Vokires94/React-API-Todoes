@@ -7,8 +7,6 @@ import {
     EDIT_TODO_ERROR
 } from '../constants';
 
-import { db } from '../../indexDB';
-
 // test instance
 // const initialState = {
 //     data: [{user_id: '1', text_id: '1', text: 'something'},
@@ -22,15 +20,6 @@ import { db } from '../../indexDB';
 //           ],
 //     message: '',
 // };
-
-db.data.get('0').then(function() {
-            return db.data.toArray();
-        }).then(function (youngFriends) {
-            initialState.data = [...youngFriends];
-        }).catch(function (e) {
-            console.log("Error: " + (e.stack || e));
-        });
-
 
 const initialState = {
     data: [],

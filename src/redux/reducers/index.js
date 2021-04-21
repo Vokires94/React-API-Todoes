@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 
 import todos from './todos';
-//import user from './user';
+import users from './users';
+import admin from './admin';
 
 const mainReducer = combineReducers({
     todos,
-    // user,
+    users,
+    admin,
 });
 
 export default mainReducer;
