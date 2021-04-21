@@ -1,29 +1,30 @@
 import {
-    FETCH_USERS_SUCCESS,
-    FETCH_USERS_ERROR
+    FETCH_USER_ERROR,
+    FETCH_USER_SUCCESS
 } from '../constants';
 
 
 const initialState = {
-    users: [],
+    user: [],
     message: '',
 };
 
 export default (state = initialState, action) => {
-    switch (action.type) {
-        case FETCH_USERS_SUCCESS:
+    switch (action.type) {        
+
+        case FETCH_USER_SUCCESS:
             return {
                 ...state,
-                users: [...action.payload],
+                user: [...action.payload],
                 message: '',
             };
 
-        case FETCH_USERS_ERROR:
+        case FETCH_USER_ERROR:
             return {
                 ...state,
                 message: action.payload,
             };
-            
+
         default:
             return state;
     };

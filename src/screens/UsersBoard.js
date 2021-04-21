@@ -9,35 +9,32 @@ import Pagination from '../components/Pagination';
 function UsersBoard() {
 
   let history = useHistory();
-  let [page, setPages] = useState(1);
-  const [totalUsers, setTotalUsers] = useState(6);
-  const [postsPerPage, setPostPerPage] = useState(6);
+  let [page, setPages] = useState(1); 
 
   useEffect(() => {
-    actions.fetchUsers(page);
-    
+    actions.fetchUsers(page);    
   }, [page]);
 
   const users = useSelector(getUsers);
-
-  const paginate = (pageNumber) => {
-    if (pageNumber === 0) setPages(1);
-    else if (pageNumber > totalUsers / postsPerPage) setPages(pageNumber - 1);
-    else setPages(pageNumber);
-  }
+  
   if (!users) {
     return <p>Loading Page...</p>
   } else {
 
+    const paginate = (pageNumber) => {
+      if (pageNumber === 0) setPages(1);
+      else if (pageNumber > users.total / users.per_page) setPages(pageNumber - 1);
+      else setPages(pageNumber);
+    }
+
     return (
       <div className="App">
         <Pagination
-          postsPerPage={postsPerPage}
-          totalPosts={totalUsers}
+          postsPerPage={users.per_page}
+          totalPosts={users.total}
           CurrentPage={page}
           paginate={paginate}
         />
-
         {
           users.data.map((user) => (
             <div key={user.id} className="List__Container">
