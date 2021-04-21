@@ -1,5 +1,9 @@
 // TODOS
-export const getTodosList = (state) => state.todos.data;
+export const getTodosList = (id) => (state) => {
+    if (state.todos.data[id])
+        return state.todos.data[id];
+    else return [];
+}
 
 //USERS
 export const getUsers = (state) => state.users.users[0];

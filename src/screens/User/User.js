@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import actions from '../redux/actions';
-import { getUser } from '../redux/selectors';
+import actions from '../../redux/actions';
+import { getUser } from '../../redux/selectors';
 import './User.css';
-import TodoList from '../components/TodoList';
+import TodoList from '../../components/TodoList';
 
 function User() {
 

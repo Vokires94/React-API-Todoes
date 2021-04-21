@@ -8,31 +8,41 @@ import {
 } from '../constants';
 
 // test instance
-// const initialState = {
-//     data: [{user_id: '1', text_id: '1', text: 'something'},
-//            {user_id: '1', text_id: '2', text: "dfdsfgsdfgdsfgds"},
-//            {user_id: '1', text_id: '3', text: "534tyertrety"},
-//            {user_id: '1', text_id: '4', text: "ghdfbngvvvvvvvv"},
-//            {user_id: '2', text_id: '5', text: 'something'},
-//            {user_id: '2', text_id: '6', text: "dfdsfgsdfgdsfgds"},
-//            {user_id: '3', text_id: '7', text: "534tyertrety"},
-//            {user_id: '4', text_id: '8', text: "ghdfbngvvvvvvvv"},
-//           ],
-//     message: '',
-// };
-
 const initialState = {
-    data: [],
-    message: '',
+    data: {
+        [1]: [
+            { id: 0, text: "Some to Do text User1" },
+            { id: 1, text: "Some to Do text1 User1" },
+            { id: 2, text: "Some to Do text2 User1" },
+            { id: 3, text: "Some to Do text3 User1" },
+            { id: 4, text: "Some to Do text4 User1" }
+        ],
+        [2]: [
+            { id: 0, text: "Some to Do text User2" },
+            { id: 1, text: "Some to Do text1 User2" },
+            { id: 2, text: "Some to Do text2 User2" },
+            { id: 3, text: "Some to Do text3 User2" },
+            { id: 4, text: "Some to Do text4 User2" }
+        ],
+        [3]: [
+            { id: 0, text: "Some to Do text User3" },
+            { id: 1, text: "Some to Do text1 User3" }
+        ],
+        message: '',
+    }
+
 };
 
 export default (state = initialState, action) => {
-    switch(action.type) {
-        case ADD_TODO_SUCCESS:
+    switch (action.type) {
+
+        case ADD_TODO_SUCCESS:  
+        const mack = Object.assign({}, state.data);
+        mack[action.payload.id].push({id: 5, text: action.payload.text});
             return {
                 ...state,
                 message: '',
-                data: state.data.concat({user_id: action.payload.id, text_id: action.payload.unique_key, text: action.payload.text})
+                data: mack
             };
 
         case ADD_TODO_ERROR:
@@ -54,12 +64,12 @@ export default (state = initialState, action) => {
                 message: action.payload,
             };
 
-            case EDIT_TODO_SUCCESS:
+        case EDIT_TODO_SUCCESS:
             return {
                 ...state,
                 message: '',
-                data: state.data.map((item, index) => { 
-                    if(item.text_id === action.payload.editValue) {
+                data: state.data.map((item, index) => {
+                    if (item.text_id === action.payload.editValue) {
                         return {
                             ...item,
                             text: action.payload.newValue
@@ -70,10 +80,10 @@ export default (state = initialState, action) => {
                 }),
             };
 
-            case EDIT_TODO_ERROR:
+        case EDIT_TODO_ERROR:
             return {
                 ...state,
-                message: action.payload,                
+                message: action.payload,
             };
 
         default:

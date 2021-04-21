@@ -9,12 +9,11 @@ import {
 
 
 export const addTodo = (id, text) => {
-    const unique_key = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     return (dispatch) => {
         if (!text) {
             dispatch({ type: ADD_TODO_ERROR, payload: 'Text is not provided or internal error ' })
         } else {
-            dispatch({ type: ADD_TODO_SUCCESS, payload: { id, text, unique_key } })
+            dispatch({ type: ADD_TODO_SUCCESS, payload: { id, text } })
         }
     };
 };

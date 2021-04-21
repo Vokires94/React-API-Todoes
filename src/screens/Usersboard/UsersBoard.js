@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import actions from '../redux/actions';
-import { getUsers } from '../redux/selectors';
+import actions from '../../redux/actions';
+import { getUsers } from '../../redux/selectors';
 import './UsersBoard.css';
-import Pagination from '../components/Pagination';
+import Pagination from '../../components/Pagination';
 
 function UsersBoard() {
 
