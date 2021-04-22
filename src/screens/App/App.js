@@ -7,24 +7,24 @@ import Register from '../Register';
 import User from '../User';
 
 function App() {
-  return (  
-          <Switch>
-            <Route exact path='/'>
-              <Main />
-            </Route>
-            <Route path='/users'>
-              <UsersBoard />
-            </Route>
-            <Route path='/login'>
-              <Login />
-            </Route>
-            <Route path='/register'>
-              <Register />
-            </Route>
-            <Route path='/user/:id'>
-              <User />
-            </Route>      
-          </Switch>               
+  return (
+    <Switch>
+      <Route exact path='/'>
+        <Main />
+      </Route>
+      <Route path='/users'>
+        <UsersBoard />
+      </Route>
+      <Route path='/login'>
+        <Login />
+      </Route>
+      <Route path='/register'>
+        <Register />
+      </Route>
+      <Route path='/user/:id'>
+        <User />
+      </Route>
+    </Switch>
   );
 }
 

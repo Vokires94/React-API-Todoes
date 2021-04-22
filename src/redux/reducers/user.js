@@ -10,11 +10,10 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    switch (action.type) {        
+    switch (action.type) {
 
         case FETCH_USER_SUCCESS:
             return {
-                ...state,
                 user: [...action.payload],
                 message: '',
             };

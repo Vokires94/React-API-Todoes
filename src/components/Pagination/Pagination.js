@@ -9,20 +9,20 @@ const Pagination = ({ postsPerPage, totalPosts, CurrentPage, paginate }) => {
   }
 
   return (
-      <div className='pagination'>
-          <button onClick={() => paginate(CurrentPage-1)} className='page-back'>
-              Back
+    <div className='pagination'>
+      <button onClick={() => paginate(CurrentPage - 1)} className='page-back'>
+        Back
           </button>
-        {            
+      {
         pageNumbers.map(number => (
-            <button key={number} onClick={() => paginate(number)} className='page-link'>
+          <button key={number} onClick={() => paginate(number)} className='page-link'>
             {number}
-            </button>          
-        ))}
-        <button onClick={() => paginate(CurrentPage+1)} className='page-next'>
-              Next
           </button>
-      </div>
+        ))}
+      <button onClick={() => paginate(CurrentPage + 1)} className='page-next'>
+        Next
+          </button>
+    </div>
   );
 };
 

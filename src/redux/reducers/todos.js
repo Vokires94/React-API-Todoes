@@ -37,10 +37,9 @@ export default (state = initialState, action) => {
     switch (action.type) {
 
         case ADD_TODO_SUCCESS:
-
+            if (!state.data[action.payload.id]) state.data[action.payload.id] = [];
             state.data[action.payload.id].push({ id: 5, text: action.payload.text });
             return {
-                ...state,
                 message: 'Comment Added',
                 data: state.data
             };
@@ -55,7 +54,6 @@ export default (state = initialState, action) => {
 
             state.data[action.payload.id] = [].concat(state.data[action.payload.id].filter(item => item.id !== action.payload.text_id));
             return {
-                ...state,
                 message: 'Deleted Successfully',
                 data: state.data
             };
@@ -70,7 +68,6 @@ export default (state = initialState, action) => {
 
             state.data[action.payload.id][action.payload.editValue - 1] = { id: action.payload.editValue, text: action.payload.newValue };
             return {
-                ...state,
                 message: 'Edited Successfully',
                 data: state.data
             };

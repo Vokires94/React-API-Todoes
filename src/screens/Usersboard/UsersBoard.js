@@ -9,14 +9,14 @@ import Pagination from '../../components/Pagination';
 function UsersBoard() {
 
   let history = useHistory();
-  let [page, setPages] = useState(1); 
+  let [page, setPages] = useState(1);
 
   useEffect(() => {
-    actions.fetchUsers(page);    
+    actions.fetchUsers(page);
   }, [page]);
 
   const users = useSelector(getUsers);
-  
+
   if (!users) {
     return <p>Loading Page...</p>
   } else {

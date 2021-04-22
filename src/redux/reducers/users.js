@@ -13,7 +13,6 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case FETCH_USERS_SUCCESS:
             return {
-                ...state,
                 users: [...action.payload],
                 message: '',
             };
@@ -23,7 +22,7 @@ export default (state = initialState, action) => {
                 ...state,
                 message: action.payload,
             };
-            
+
         default:
             return state;
     };
