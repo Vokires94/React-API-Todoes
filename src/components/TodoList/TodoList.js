@@ -16,8 +16,8 @@ const TodoList = () => {
     return (
         <div className="todo__container">
             <div className="add__container">
-                <input type="text" placeholder="Enter todo" onChange={e => setAddValue(e.target.value)} maxLength="30"></input>
-                <input type="submit" onClick={() => { actions.addTodo(id, addValue); setAddValue('') }} value="Add"></input>
+                <input type="text" placeholder="Enter todo" onChange={e => setAddValue(e.target.value)} maxLength="30" value={addValue}></input>
+                <input type="submit" onClick={() => { actions.addTodo(id, addValue); setAddValue(''); }} value="Add"></input>
             </div>
             {todosList.length > 0
                 ? todosList.map((todo, index) => {
@@ -36,7 +36,7 @@ const TodoList = () => {
             {editValue &&
                 <div className="edit__container">
                     <input type="text" placeholder="Enter new value" onChange={e => setNewValue(e.target.value)} maxLength="30"></input>
-                    <input type="submit" onClick={() => { actions.editTodo(id, editValue, newValue); setEditValue('') }} value="Change"></input>
+                    <input type="submit" onClick={() => { actions.editTodo(id, editValue, newValue); setEditValue(''); }} value="Change"></input>
                 </div>
             }
         </div>
