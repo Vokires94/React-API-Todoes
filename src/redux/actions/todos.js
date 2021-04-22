@@ -18,22 +18,22 @@ export const addTodo = (id, text) => {
     };
 };
 
-export const deleteTodo = (text_id) => {
+export const deleteTodo = (id, text_id) => {
     return (dispatch) => {
-        if(text_id) {
-            dispatch({ type: DELETE_TODO_SUCCESS, payload: { text_id } })
+        if (text_id) {
+            dispatch({ type: DELETE_TODO_SUCCESS, payload: { id, text_id } })
         } else {
-            dispatch({ type: DELETE_TODO_ERROR, payload: 'Error. ID for deletion is not provided or internal error.'})
+            dispatch({ type: DELETE_TODO_ERROR, payload: 'Error. ID for deletion is not provided or internal error.' })
         };
     };
 };
 
-export const editTodo = (editValue, newValue) => {
+export const editTodo = (id, editValue, newValue) => {
     return (dispatch) => {
-        if(newValue) {
-            dispatch({ type: EDIT_TODO_SUCCESS, payload: { editValue, newValue } })
+        if (newValue) {
+            dispatch({ type: EDIT_TODO_SUCCESS, payload: { id, editValue, newValue } })
         } else {
-            dispatch({ type: EDIT_TODO_ERROR, payload: 'Error. New Value not set or internal error.'})
+            dispatch({ type: EDIT_TODO_ERROR, payload: 'Error. New Value not set or internal error.' })
         };
     };
 };
